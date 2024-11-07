@@ -1,3 +1,6 @@
+// run with "gcc -o my_pthread_program bhanu_pthread.c -lpthread"
+
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
