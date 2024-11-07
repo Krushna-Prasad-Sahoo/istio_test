@@ -78,6 +78,9 @@ void *process_chunk(void *arg) {
 
     // Processing chunks distributed by thread id
     for (int i = chunk_id; i < total_chunks; i += num_threads) {
+        if (i >= NUM_CHUNKS) {
+            break; // Ensure we don't go out of bounds
+        }
         detect_noise(data[i], NUM_COLS); // Detect noise on each record
         // After processing each chunk, report progress
         report_progress(chunk_id, i + 1); // i + 1 gives the 1-based chunk number
